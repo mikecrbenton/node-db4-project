@@ -1,5 +1,5 @@
 const express = require("express")
-//const zoosRouter = require("./routers/zoos")
+const recipesRouter = require("./routers/recipesRouter")
 //const animalsRouter = require("./routers/animals")
 //const speciesRouter = require("./routers/species")
 
@@ -8,7 +8,7 @@ const port = process.env.PORT || 5000
 
 server.use(express.json())
 
-//server.use(zoosRouter)
+server.use(recipesRouter)
 //server.use(animalsRouter)
 //server.use(speciesRouter)
 
