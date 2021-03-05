@@ -1,5 +1,6 @@
 const express = require("express")
 const Recipes = require("../models/recipes")
+const { checkRecipeId } = require('../middleware/index')
 
 const router = express.Router()
 
@@ -13,18 +14,18 @@ router.get("/recipes", async (req, res, next) => {
 	}
 })
 
-router.get("/recipes/:id/shoppingList", async (req,res, next) => {
+router.get("/recipes/:recipe_id/shoppingList", checkRecipeId, async (req,res, next) => {
    try {
-      const shoppingList = await Recipes.getShoppingList(req.params.id)
+      const shoppingList = await Recipes.getShoppingList(req.params.recipe_id)
       res.json(shoppingList)
    }catch(err){
       next(err)
    }
 })
 
-router.get("/recipes/:id/instructions", async (req,res, next) => {
+router.get("/recipes/:recipe_id/instructions", checkRecipeId, async (req,res, next) => {
    try {
-      const instructions = await Recipes.getInstructions(req.params.id)
+      const instructions = await Recipes.getInstructions(req.params.recipe_id)
       res.json(instructions)
    }catch(err){
       next(err)
