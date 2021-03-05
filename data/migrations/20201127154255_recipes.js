@@ -1,5 +1,5 @@
 /* KNEX-MIGRATE USAGE
-  $ knex-migrate <command> [options]
+  $ npx knex-migrate <command> [options]
 
 Commands
   generate  Generate migration
